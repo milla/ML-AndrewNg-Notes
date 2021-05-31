@@ -53,10 +53,10 @@ $$
 逻辑回归模型中，$h_\theta \left( x \right)$ 的作用是，根据输入 $x$ 以及参数 $\theta$，计算得出”输出 $y=1$“的可能性(estimated probability)，概率学中表示为：
 
 $$
-\begin{align*}
+\begin{aligned}
 & h_\theta(x) = P(y=1 | x ; \theta) = 1 - P(y=0 | x ; \theta) \\
 & P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1
-\end{align*}
+\end{aligned}
 $$
 以肿瘤诊断为例，$h_\theta \left( x \right)=0.7$ 表示病人有 $70\%$ 的概率得了恶性肿瘤。
 
@@ -72,10 +72,10 @@ $$
 为了得出分类的结果，这里和前面一样，规定以 $0.5$ 为阈值：
 
 $$
-\begin{align*}
+\begin{aligned}
 & h_\theta(x) \geq 0.5 \rightarrow y = 1 \\
 & h_\theta(x) < 0.5 \rightarrow y = 0 \\
-\end{align*}
+\end{aligned}
 $$
 回忆一下 sigmoid 函数的图像：
 
@@ -85,10 +85,10 @@ $$
 
 同线性回归模型的不同点在于： 
 $$
-\begin{align*}
+\begin{aligned}
 z \to +\infty, e^{-\infty} \to 0 \Rightarrow g(z)=1 \\
 z \to -\infty, e^{\infty}\to \infty \Rightarrow g(z)=0
-\end{align*}
+\end{aligned}
 $$
 直观一点来个例子，${h_\theta}\left( x \right)=g\left( {\theta_0}+{\theta_1}{x_1}+{\theta_{2}}{x_{2}}\right)$ 是下图模型的假设函数：
 
@@ -140,11 +140,11 @@ $$
 对于逻辑回归，更换平方损失函数为**对数损失函数**，可由统计学中的最大似然估计方法推出代价函数 $J(\theta)$：
 
 $$
-\begin{align*}
+\begin{aligned}
 & J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \\
 & \mathrm{Cost}(h_\theta(x),y) = -\log(h_\theta(x)) \; & \text{if y = 1} \\
 & \mathrm{Cost}(h_\theta(x),y) = -\log(1-h_\theta(x)) \; & \text{if y = 0}
-\end{align*}
+\end{aligned}
 $$
 则有关于 $J(\theta)$ 的图像如下：
 
@@ -172,22 +172,22 @@ $h = g(X\theta)$，$J(\theta) = \frac{1}{m} \cdot \left(-y^{T}\log(h)-(1-y)^{T}\
 为了最优化 $\theta$，仍使用梯度下降法，算法同线性回归中一致：
 
 $$
-\begin{align*}
+\begin{aligned}
 & \text{Repeat until convergence:} \; \lbrace \\
 &{{\theta }_{j}}:={{\theta }_{j}}-\alpha \frac{\partial }{\partial {{\theta }_{j}}}J\left( {\theta}  \right) \\
 \rbrace
-\end{align*}
+\end{aligned}
 $$
 
 
 解出偏导得：
 
 $$
-\begin{align*}
+\begin{aligned}
 & \text{Repeat until convergence:} \; \lbrace \\
 & \theta_j := \theta_j - \alpha \frac{1}{m} \sum\limits_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \; & \text{for j := 0,1...n}\\
 \rbrace
-\end{align*}
+\end{aligned}
 $$
 
 
@@ -207,10 +207,10 @@ $$
 忆及 $h_\theta(x) = g(z)$，$g(z) = \frac{1}{1+e^{(-z)}}$，则
 
 $$
-\begin{align*}
+\begin{aligned}
 f(\theta) &= {{y}^{(i)}}\log \left( \frac{1}{1+{{e}^{-z}}} \right)+\left( 1-{{y}^{(i)}} \right)\log \left( 1-\frac{1}{1+{{e}^{-z}}} \right) \\
 &= -{{y}^{(i)}}\log \left( 1+{{e}^{-z}} \right)-\left( 1-{{y}^{(i)}} \right)\log \left( 1+{{e}^{z}} \right)
-\end{align*}
+\end{aligned}
 $$
 
 忆及 $z=\theta^Tx^{(i)}$，对 $\theta_j$ 求偏导，则没有 $\theta_j$ 的项求偏导即为 $0$，都消去，则得：
@@ -221,7 +221,7 @@ $$
 所以有：
 
 $$
-\begin{align*}
+\begin{aligned}
 \frac{\partial }{\partial {\theta_{j}}}f\left( \theta  \right)&=\frac{\partial }{\partial {\theta_{j}}}[-{{y}^{(i)}}\log \left( 1+{{e}^{-z}} \right)-\left( 1-{{y}^{(i)}} \right)\log \left( 1+{{e}^{z}} \right)] \\
 &=-{{y}^{(i)}}\frac{\frac{\partial }{\partial {\theta_{j}}}\left(-z \right) e^{-z}}{1+e^{-z}}-\left( 1-{{y}^{(i)}} \right)\frac{\frac{\partial }{\partial {\theta_{j}}}\left(z \right){e^{z}}}{1+e^{z}} \\
 &=-{{y}^{(i)}}\frac{-x^{(i)}_je^{-z}}{1+e^{-z}}-\left( 1-{{y}^{(i)}} \right)\frac{x^{(i)}_j}{1+e^{-z}} \\
@@ -231,7 +231,7 @@ $$
 &={({{y}^{(i)}}-\frac{1}{1+{{e}^{-z}}})x_j^{(i)}} \\
 &={\left({{y}^{(i)}}-{h_\theta}\left( {{x}^{(i)}} \right)\right)x_j^{(i)}} \\
 &=-{\left({h_\theta}\left( {{x}^{(i)}} \right)-{{y}^{(i)}}\right)x_j^{(i)}}
-\end{align*}
+\end{aligned}
 $$
 
 则可得代价函数的导数：
@@ -440,12 +440,12 @@ $\lambda$ 正则化参数类似于学习速率，也需要我们自行对其选�
 应用正则化的线性回归梯度下降算法：
 
 $$
-\begin{align*}
+\begin{aligned}
 & \text{Repeat}\ \lbrace \\
 & \ \ \ \ \theta_0 := \theta_0 - \alpha\ \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\
 & \ \ \ \ \theta_j := \theta_j - \alpha\ \left[ \left( \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \frac{\lambda}{m}\theta_j \right], \ \ \ j \in \lbrace 1,2...n\rbrace\\
 & \rbrace
-\end{align*}
+\end{aligned}
 $$
 也可以移项得到更新表达式的另一种表示形式
 
@@ -461,14 +461,14 @@ $$
 应用正则化的正规方程法[^2]：
 
 $$
-\begin{align*}
+\begin{aligned}
 & \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \\
 & \text{where}\ \ L = \begin{bmatrix} 0 & & & & \\
 & 1 & & & \\
 & & 1 & & \\
 & & & \ddots & \\
 & & & & 1 \\ \end{bmatrix}
-\end{align*}
+\end{aligned}
 $$
 
 
@@ -506,11 +506,11 @@ $$
 从而有应用正则化的逻辑回归梯度下降算法：
 
 $$
-\begin{align*}
+\begin{aligned}
 & \text{Repeat}\ \lbrace \\
 & \ \ \ \ \theta_0 := \theta_0 - \alpha\ \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \\
 & \ \ \ \ \theta_j := \theta_j - \alpha\ \left[ \left( \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \frac{\lambda}{m}\theta_j \right], \ \ \ j \in \lbrace 1,2...n\rbrace\\
-& \rbrace \end{align*}
+& \rbrace \end{aligned}
 $$
 
 

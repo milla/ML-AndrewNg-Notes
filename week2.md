@@ -47,22 +47,22 @@ $$
 前文提到梯度下降对于最小化代价函数的通用性，则多变量梯度下降公式即
 
 $$
-\begin{align*}
+\begin{aligned}
 & \text{Repeat until convergence:} \; \lbrace \\
 &{{\theta }_{j}}:={{\theta }_{j}}-\alpha \frac{\partial }{\partial {{\theta }_{j}}}J\left( {\theta_{0}},{\theta_{1}}...{\theta_{n}}  \right) \\
 \rbrace
-\end{align*}
+\end{aligned}
 $$
 
 
 解出偏导得：
 
 $$
-\begin{align*}
+\begin{aligned}
 & \text{repeat until convergence:} \; \lbrace \\
 & \theta_j := \theta_j - \alpha \frac{1}{m} \sum\limits_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \cdot x_j^{(i)} \; & \text{for j := 0,1...n}\\
 \rbrace
-\end{align*}
+\end{aligned}
 $$
 
 

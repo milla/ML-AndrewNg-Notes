@@ -248,11 +248,11 @@ $\theta_0 = 360, \theta_1 =0$ 时：
 梯度下降公式：
 
 $$
-\begin{align*}
+\begin{aligned}
 & \text{Repeat until convergence:} \; \lbrace \\
 &{{\theta }_{j}}:={{\theta }_{j}}-\alpha \frac{\partial }{\partial {{\theta }_{j}}}J\left( {\theta_{0}},{\theta_{1}}  \right) \\
 \rbrace
-\end{align*}
+\end{aligned}
 $$
 
 
@@ -315,11 +315,11 @@ $$
 
 梯度下降算法
 $$
-\begin{align*}
+\begin{aligned}
   & \text{Repeat until convergence:} \; \lbrace \\
   &{{\theta }_{j}}:={{\theta }_{j}}-\alpha \frac{\partial }{\partial {{\theta }_{j}}}J\left( {\theta_{0}},{\theta_{1}}  \right) \\
   \rbrace
-  \end{align*}
+  \end{aligned}
 $$
 
 
@@ -330,11 +330,11 @@ $$
 
 当 $j = 0, j = 1$ 时，**线性回归中代价函数求导的推导过程：**
 $$
-\begin{align*}
+\begin{aligned}
 \frac{\partial}{\partial\theta_j} J(\theta_1, \theta_2)&=\frac{\partial}{\partial\theta_j} \left(\frac{1}{2m}\sum\limits_{i=1}^{m}{{\left( {{h}_{\theta }}\left( {{x}^{(i)}} \right)-{{y}^{(i)}} \right)}^{2}} \right)\\
 &=\left(\frac{1}{2m}*2\sum\limits_{i=1}^{m}{{\left( {{h}_{\theta }}\left( {{x}^{(i)}} \right)-{{y}^{(i)}} \right)}} \right)*\frac{\partial}{\partial\theta_j}{{\left( {{h}_{\theta }}\left( {{x}^{(i)}} \right)-{{y}^{(i)}} \right)}}\\
 &=\left(\frac{1}{m}\sum\limits_{i=1}^{m}{{\left( {{h}_{\theta }}\left( {{x}^{(i)}} \right)-{{y}^{(i)}} \right)}} \right)*\frac{\partial}{\partial\theta_j}{{\left(\theta_0{x_0^{(i)}} + \theta_1{x_1^{(i)}}-{{y}^{(i)}} \right)}}
-\end{align*}
+\end{aligned}
 $$
 
 
